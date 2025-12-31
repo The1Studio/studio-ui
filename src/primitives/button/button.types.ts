@@ -1,14 +1,12 @@
-import type { ReactNode } from 'react';
+import type { ViewStyle } from 'react-native';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonVariant = 'primary' | 'secondary' | 'outline';
 
 export interface ButtonProps {
-  children: ReactNode;
+  title: string;
   onPress: () => void;
   variant?: ButtonVariant;
-  size?: ButtonSize;
   disabled?: boolean;
-  loading?: boolean;
-  fullWidth?: boolean;
+  isLoading?: boolean;
+  style?: ViewStyle;
 }

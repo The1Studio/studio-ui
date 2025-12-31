@@ -9,10 +9,10 @@
  * // EXPO_PUBLIC_THEME=minimal (default)
  * // EXPO_PUBLIC_THEME=modern
  *
- * import { Button, TextInput, Modal, Card } from '@studio/ui';
+ * import { Button, Checkbox, BottomSheetModal } from '@studio/ui';
  *
  * // Or use primitives for custom components:
- * import { useButton, useModal } from '@studio/ui/primitives';
+ * import { useButton, useCheckbox } from '@studio/ui/primitives';
  */
 
 import * as minimal from './themes/minimal';
@@ -41,7 +41,19 @@ if (!(THEME_NAME in themes)) {
 const selectedTheme = themes[THEME_NAME] || themes.minimal;
 
 // Re-export selected theme's components
-export const { Button, TextInput, Modal, Card } = selectedTheme;
+export const {
+  // Core
+  Button,
+  // Form
+  Checkbox,
+  // Overlays
+  BottomSheetModal,
+  // Shared
+  CollapsibleCard,
+  // Icons
+  CloseIcon,
+  ArrowDownIcon,
+} = selectedTheme;
 
 // Export primitives for custom components
 export * from './primitives';

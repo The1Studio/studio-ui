@@ -6,13 +6,7 @@ import {
   ViewStyle,
   ActivityIndicator,
 } from 'react-native';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from 'react-native-reanimated';
-import { colors } from '../../tokens';
-import { spacing, borderRadius } from '../../tokens/spacing';
+import { colors } from '../../../tokens';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline';
 
@@ -25,11 +19,6 @@ interface ButtonProps {
   isLoading?: boolean;
 }
 
-const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
-
-/**
- * Modern theme Button - with spring animations
- */
 export function Button({
   title,
   onPress,
@@ -38,34 +27,17 @@ export function Button({
   style,
   isLoading,
 }: ButtonProps) {
-  const scale = useSharedValue(1);
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: withSpring(scale.value, { damping: 15, stiffness: 300 }) }],
-  }));
-
-  const handlePressIn = () => {
-    scale.value = 0.95;
-  };
-
-  const handlePressOut = () => {
-    scale.value = 1;
-  };
-
   return (
-    <AnimatedTouchable
+    <TouchableOpacity
       style={[
         styles.button,
         styles[variant],
         disabled && styles.disabled,
-        animatedStyle,
         style,
       ]}
       onPress={onPress}
-      onPressIn={handlePressIn}
-      onPressOut={handlePressOut}
-      disabled={disabled || isLoading}
-      activeOpacity={0.9}
+      disabled={disabled}
+      activeOpacity={0.8}
     >
       {isLoading ? (
         <ActivityIndicator
@@ -79,22 +51,17 @@ export function Button({
           {title}
         </Text>
       )}
-    </AnimatedTouchable>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.lg,
-    borderRadius: borderRadius.lg,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 4,
   },
   primary: {
     backgroundColor: colors.primary,
@@ -106,17 +73,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderWidth: 2,
     borderColor: colors.primary,
-    shadowOpacity: 0,
-    elevation: 0,
   },
   disabled: {
     opacity: 0.5,
   },
   text: {
-    color: colors.white,
+    color: '#ffffff',
     fontSize: 16,
     fontWeight: '600',
-    letterSpacing: 0.5,
   },
   outlineText: {
     color: colors.primary,

@@ -1,16 +1,41 @@
 /**
  * Typography tokens - font sizes, weights, line heights
+ * Using moderateScale for responsive sizing
  */
+import { TextStyle } from 'react-native';
+import { moderateScale } from 'react-native-size-matters';
 
+export const typography: Record<string, TextStyle> = {
+  h1: {
+    fontSize: moderateScale(32),
+    lineHeight: moderateScale(40),
+    fontWeight: '700',
+  },
+  h2: {
+    fontSize: moderateScale(24),
+    lineHeight: moderateScale(32),
+    fontWeight: '600',
+  },
+  body: {
+    fontSize: moderateScale(16),
+    lineHeight: moderateScale(24),
+  },
+  caption: {
+    fontSize: moderateScale(12),
+    lineHeight: moderateScale(16),
+  },
+} as const;
+
+// Individual tokens for fine-grained control
 export const fontSize = {
-  xs: 12,
-  sm: 14,
-  base: 16,
-  lg: 18,
-  xl: 20,
-  '2xl': 24,
-  '3xl': 30,
-  '4xl': 36,
+  xs: moderateScale(12),
+  sm: moderateScale(14),
+  base: moderateScale(16),
+  lg: moderateScale(18),
+  xl: moderateScale(20),
+  '2xl': moderateScale(24),
+  '3xl': moderateScale(30),
+  '4xl': moderateScale(36),
 } as const;
 
 export const fontWeight = {

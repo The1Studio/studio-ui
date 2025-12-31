@@ -6,8 +6,8 @@ import type { ButtonProps } from './button.types';
  * Used by all theme implementations
  */
 export function useButton(props: ButtonProps) {
-  const { onPress, disabled, loading } = props;
-  const isDisabled = disabled || loading;
+  const { onPress, disabled, isLoading } = props;
+  const isDisabled = disabled || isLoading;
 
   const handlePress = useCallback(() => {
     if (isDisabled) return;
@@ -17,13 +17,12 @@ export function useButton(props: ButtonProps) {
   return {
     handlePress,
     isDisabled,
-    isLoading: loading ?? false,
+    isLoading: isLoading ?? false,
     accessibilityProps: {
-      role: 'button' as const,
       accessibilityRole: 'button' as const,
       accessibilityState: {
         disabled: isDisabled,
-        busy: loading,
+        busy: isLoading,
       },
     },
   };
