@@ -44,12 +44,29 @@ const selectedTheme = themes[THEME_NAME] || themes.minimal;
 export const {
   // Core
   Button,
+  Card,
+  Spacer,
+  Text,
   // Form
   Checkbox,
   // Overlays
   BottomSheetModal,
+  ConfirmModal,
+  DeleteConfirmModal,
+  Skeleton,
+  SkeletonText,
+  SkeletonAvatar,
+  SkeletonCard,
+  SkeletonListItem,
+  SkeletonList,
   // Shared
   CollapsibleCard,
+  SwipeableCard,
+  SwipeableCardProvider,
+  useSwipeableContext,
+  Avatar,
+  AvatarImage,
+  AvatarWithName,
   // Icons
   CloseIcon,
   ArrowDownIcon,
@@ -60,6 +77,7 @@ export * from './primitives';
 
 // Export tokens for styling
 export * from './tokens';
+export * from './utils';
 
 // Export theme name for debugging
 export const currentTheme = THEME_NAME;

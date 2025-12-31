@@ -24,3 +24,48 @@ export type { CollapsibleCardProps } from './collapsible-card';
 
 // Icon
 export type { IconProps } from './icon';
+
+// Card
+export type { CardProps, CardVariant } from './card';
+
+// Spacer
+export type { SpacerProps, SpacerSize } from './spacer';
+
+// Text
+export type { TextProps, TextVariant } from './text';
+
+// ConfirmModal
+export type {
+  ConfirmModalProps,
+  ConfirmModalVariant,
+  DeleteConfirmModalProps,
+} from './confirm-modal';
+
+// Skeleton
+export type {
+  SkeletonProps,
+  SkeletonTextProps,
+  SkeletonAvatarProps,
+  SkeletonCardProps,
+  SkeletonListItemProps,
+  SkeletonListProps,
+} from './skeleton';
+
+// SwipeableCard
+export type {
+  SwipeableCardProps,
+  SwipeableCardProviderProps,
+} from './swipeable-card';
+
+// Avatar
+export {
+  useAvatar,
+  getColorFromName,
+  getInitials,
+  getBorderRadius,
+  avatarSizeConfig,
+  avatarFontSizeConfig,
+  avatarNameFontSizeConfig,
+  avatarColors,
+} from './avatar';
+export type { AvatarProps, AvatarSize, AvatarVariant } from './avatar';
