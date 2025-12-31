@@ -47,8 +47,25 @@ export const {
   Card,
   Spacer,
   Text,
-  // Form
+  // Form - Base Components
   Checkbox,
+  TextInput,
+  RadioButton,
+  RadioGroup,
+  SelectField,
+  SelectMultiple,
+  DatePicker,
+  DateRangePicker,
+  // Form - react-hook-form Components
+  FormTextInput,
+  FormSelectField,
+  FormSelectMultiple,
+  FormCheckbox,
+  FormRadioGroup,
+  FormPasswordInput,
+  PasswordInput,
+  FormDatePicker,
+  FormDateRangePicker,
   // Overlays
   BottomSheetModal,
   ConfirmModal,
@@ -70,6 +87,7 @@ export const {
   // Icons
   CloseIcon,
   ArrowDownIcon,
+  CalendarIcon,
 } = selectedTheme;
 
 // Export primitives for custom components
